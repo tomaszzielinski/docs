@@ -119,7 +119,7 @@
         response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
         response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'               
                </pre>
-               Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to the users etc.
+               Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to users etc.
                (Btw using <strong>must-revalidate</strong> causes the back button in the browser to refresh (reload) the page when pressed.)
         </ul>
 
@@ -129,7 +129,7 @@
             <li><a href="http://palisade.plynt.com/issues/2008Jul/cache-control-attributes/">Cache-Control summary</a></li>
         </ul>
         
-        <h2>Other tips</h2>
+        <h2>Other HTTP performance tips</h2>
         
         <ul>
           <li>Read <a href="http://developer.yahoo.com/performance/">Yahoo guidelines<a/></li>
@@ -138,6 +138,22 @@
           <li>There are also other online: <a href="http://tools.pingdom.com/fpt/">Pingdom</a>, <a href="http://redbot.org/">Redbot</a></li>
           <li>One thing that I think is interesting: <a href="http://code.google.com/intl/pl-PL/speed/page-speed/docs/rtt.html#PutStylesBeforeScripts">optimize the order of stylesheets and scripts</a></li>
         </ul>
+
+        <h2>Remember, <a href="http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html">performance is a feature</a>!</h2>
+        
+        <h2>Non-HTTP caching and Django</h2>
+        
+        <ul>
+           <li>Learn to use <a href="https://docs.djangoproject.com/en/1.3/topics/cache/">the cache framework</a></li>
+           <li>Employ <a href="https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types">template source caching</a> - look for <strong>django.template.loaders.cached.Loader</strong></li>
+           <li>Consider using <a href="http://www.holovaty.com/writing/django-two-phased-rendering/">two-phased template rendering</a></li>
+           <li>Try <a href="http://redis.io/">Redis</a>, it's more powerful than <a href="http://memcached.org/">Memcached</a> and not slower. 
+               Even if you're not impressed by its <a href="http://redis.io/commands">command set</a> it has one major advantage over Memcached...</li>
+           <li>...which is the persistent storage. It's not only great because of being persistent, but also because it allows to decrease the chances
+               to learn <a href="http://highscalability.com/strategy-break-memcache-dog-pile">dog piling</a> aka <a href="http://books.google.pl/books?id=m-bDb87UWL0C&pg=PA357&lpg=PA357&dq=thundering+herd+memcache&source=bl&ots=VURP6rGOpI&sig=oa-uHNZpj5IATTg_P_eF7852iWY&hl=pl&ei=6lqwTvX-E9T54QT73dicAQ&sa=X&oi=book_result&ct=result&resnum=4&ved=0CD0Q6AEwAw#v=onepage&q=thundering%20herd%20memcache&f=false">thundering herd</a> problem in practice.</li>
+           
+        </ul>
+        
         
     </div>
 
