@@ -46,7 +46,9 @@
       <span class="small">by <a href="https://github.com/tomaszzielinski">tomaszzielinski</a></span></h1>
 
     <div class="description">
-        <h2>HTTP caching for static assets</h2>
+        <h2><a href="http://www.mnot.net/cache_docs/">Introduction to HTTP caching</a></h2>
+        
+        <h2>Django and HTTP caching for static assets</h2>
         
         <ul>
             <li>
@@ -88,10 +90,11 @@
     FileETag None
 &lt;/Directory&gt;
               </pre>
-              
+              <li>That's basically all - for static assets there is no need to worry about things like proxy caches storing sensitive data etc.</li>
              </ul>
             </li>
-            
+            <li>Btw do not get frustrated if the caching doesn't work when you refresh the page using F5. 
+                <a href="http://stackoverflow.com/questions/3934413/chrome-why-is-it-sending-if-modified-since-requests/3934694#3934694">That's a known issue</a>.</li>
         </ul>
 
         <h3>Useful links</h3>
