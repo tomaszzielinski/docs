@@ -47,6 +47,7 @@
 
     <div class="description">
         <h2><a href="http://www.mnot.net/cache_docs/">Introduction to HTTP caching</a></h2>
+        <p><a href="http://palisade.plynt.com/issues/2008Jul/cache-control-attributes/">Some more reading about Cache-Control<a/></p>
         
         <h2>Django and HTTP caching for static assets</h2>
         
@@ -80,7 +81,7 @@
                   it sends a conditional request (using If-Modified-Since header) that makes it possible for the web server to reply with "304 Not Modified" status code.
               </li>
               <li><a href="http://www.allbuttonspressed.com/projects/django-mediagenerator#q-what-are-the-perfect-caching-headers">Perfect caching headers</a></li>
-              <li>In Apache one need to add something like this to the virtual host definition (after making sure that the relevant modules are loaded):
+              <li>In Apache one need to add something like this to the virtual host definition (after making sure that the relevant modules are loaded):              
               <pre>
 &lt;Directory /my/project/dir/_generated_media&gt;
     ExpiresActive On
@@ -91,6 +92,9 @@
 &lt;/Directory&gt;
               </pre>
               <li>That's basically all - for static assets there is no need to worry about things like proxy caches storing sensitive data etc.</li>
+              <li>Ah, one more thing - you probably want to have Keep-Alive on for static assets, but it's not that good for your Django application.
+                  So better think about some nginx. <a href="http://serverfault.com/questions/73812/should-i-activate-keepalive-in-apache2">[Useful link]</a>
+              </li>
              </ul>
             </li>
             <li>Btw do not get frustrated if the caching doesn't work when you refresh the page using F5. 
