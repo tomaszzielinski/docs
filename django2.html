@@ -105,6 +105,18 @@ LANGUAGES = (
             
         </ul>
 
+        <h2>Misc</h2>
+        
+        <ul>
+            <li>
+                When replacing models.py into models package, make sure that models there have app_label set in their Meta:
+                <pre>
+class Meta:
+    app_label = 'app-name'
+                </pre>
+                Without this trick, Django won't see the models.
+            </li>
+        </ul>
 
     </div>
 
