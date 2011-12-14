@@ -47,7 +47,6 @@
 
     <div class="description">
         <h2><a href="http://www.mnot.net/cache_docs/">Introduction to HTTP caching</a></h2>
-        <p><a href="http://palisade.plynt.com/issues/2008Jul/cache-control-attributes/">Some more reading about Cache-Control<a/></p>
         
         <h2>Django and HTTP caching for static assets</h2>
         
@@ -101,13 +100,33 @@
                 <a href="http://stackoverflow.com/questions/3934413/chrome-why-is-it-sending-if-modified-since-requests/3934694#3934694">That's a known issue</a>.</li>
         </ul>
 
-        <h3>Useful links</h3>
+        <h2>HTTP caching for Django views</h2>
+        
+        <ul>
+            <li>There's probably no single setup suitable for all your views (pages)</li>
+            <li>So let me just give you a few links</li>
+            <li>
+               <a href="http://blogs.msdn.com/b/ie/archive/2010/07/14/caching-improvements-in-internet-explorer-9.aspx">Caching in IE9</a>
+               Take a look at Vary-related issues, HTTPS caching, redirect caching etc.. 
+               It's not trivial to set it all up properly.
+            </li>
+            <li><a href="https://docs.djangoproject.com/en/1.3/topics/cache/#upstream-caches">Controlling HTTP caching from Django</a></li>
+            <li>Because of all these things to consider, if you don't have enough manpower to handle it properly,
+               I think that it's not that unreasonable to just disable HTTP caching using something like this (idea borrowed from Google Docs):
+               <pre>
+        response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
+        response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'               
+               </pre>
+               Btw using <strong>must-revalidate</strong> causes the back button in the browser to refresh (reload) the page when pressed.
+        </ul>
+
+        <h2>Useful links</h2>
         <ul>
             <li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">HTTP 1.1 - RFC 2616</a></li>
             <li><a href="http://palisade.plynt.com/issues/2008Jul/cache-control-attributes/">Cache-Control summary</a></li>
         </ul>
         
-        <h3>Online tools & browser plugins</h3>
+        <h2>Online tools & browser plugins</h2>
         <ul>
             <li><a href="http://tools.pingdom.com/fpt/">Pingdom</a></li>
             <li><a href="http://redbot.org/">Redbot</a></li>
