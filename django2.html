@@ -109,7 +109,13 @@ LANGUAGES = (
             <li>
                <a href="http://pypi.python.org/pypi/django-debug-toolbar/0.8.4">Django Debug Toolbar</a> - make sure to configure it according to <a href="http://pypi.python.org/pypi/django-debug-toolbar/0.8.4#installation">docs</a>
             </li>
-            
+            <li>
+               <a href="https://github.com/dcramer/django-sentry">Django Sentry</a> - the preferred way to catch exceptions and log messages.
+               It has been split into Sentry and <a href="https://github.com/dcramer/raven">Raven</a> so both are needed.
+               Note that because Sentry/Raven are meant to replace the default Django mechanism and also integrate deeply into the framework,
+               some attention is needed during <a href="http://raven.readthedocs.org/en/latest/config/django.html">configuration</a>.
+               Also note that there were unsolved (are?) problems like <a href="https://github.com/dcramer/django-sentry/issues/210">this one</a>.
+               But still Sentry/Raven is the best such tool out there.
         </ul>
 
         <h2>MySQL 5.x</h2>
