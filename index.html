@@ -77,7 +77,17 @@
               <li>Thanks to the above headers, the browser caches the assets for up to one year - and in case it wants to check if an asset has changed,
                   it sends a conditional request (using If-Modified-Since header) that makes it possible for the web server to reply with "304 Not Modified" status code.
               </li>
-              
+              <li><a href="http://www.allbuttonspressed.com/projects/django-mediagenerator#q-what-are-the-perfect-caching-headers">Perfect caching headers</a></li>
+              <li>In Apache one need to add something like this to the virtual host definition:
+              <blockquote>
+        <Directory /my/project/dir/_generated_media>
+                ExpiresActive On
+                ExpiresDefault "access plus 1 year"
+                Header merge Cache-Control "public"
+                Header unset Etag
+                FileETag None
+        </Directory>
+              </blockquote>
              </ul>
             </li>
             
