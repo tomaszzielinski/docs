@@ -50,8 +50,15 @@
         <h1>Django best practices</h1>
         
         <h2>settings.py</h2>
-        
+                
         <ul>
+            <li>Either have a global, versioned <em>settings.py</em> file which imports a local (non-versioned) configuration:
+                <pre>
+import settings_local 
+                </pre>
+                which has a versioned template <em>settings_local.py.template</em>, or use the reverse approach - have a common settings file, e.g. <em>common_settings.py</em>
+                and then a non-versioned settings.py which import the common stuff. This seems to be the preferred way.
+            </li>
             <li>
                 <pre>PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))</pre> or
                 <pre>PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))</pre> - both forms seems to be actively used, they are pretty much equivalent
