@@ -117,7 +117,8 @@
         response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
         response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'               
                </pre>
-               Btw using <strong>must-revalidate</strong> causes the back button in the browser to refresh (reload) the page when pressed.
+               Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to the users etc.
+               (Btw using <strong>must-revalidate</strong> causes the back button in the browser to refresh (reload) the page when pressed.)
         </ul>
 
         <h2>Useful links</h2>
