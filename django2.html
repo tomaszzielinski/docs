@@ -184,9 +184,15 @@ def my_view(request):
                 But seriously, there are some rules that are worth following.
             </li>
             <li>
-                <strong>HttpResponseBadRequest() (400)</strong> seems to be a good choice when Django view is reached but request parameters are invalid.
+                <strong>HttpResponseBadRequest [400]</strong> seems to be a good choice when Django view is reached but request parameters are invalid.
                 Here are some good <a href="http://stackoverflow.com/questions/4781187/http-400-bad-request-for-logical-error-not-malformed-request-syntax">discussions</a> 
                 <a href="http://stackoverflow.com/questions/1364527/http-status-code-for-bad-data">on</a> this</a>.
+            </li>
+            <li>
+                <strong>HttpResponseForbidden [403]</strong> looks like a good choice to indicate that authentication is needed
+                in a situation when redirect to the login page doesn't make sense - e.g. for AJAX requests.
+                Note that there is also 401 code, but it is meant to be used for the purposes of <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP authentication</a>,
+                and not a custom one. (<a href="http://stackoverflow.com/questions/6113014/what-http-code-to-use-in-not-authenticated-and-not-authorized-cases">A nice discussion</a> on this)
             </li>
         </ul>
 
