@@ -172,6 +172,23 @@ def my_view(request):
                 The catch here is that <em>form.is_valid()</em> returns <em>False</em> for unbound forms.
             </li>
         </ul>
+        
+        <h2>HTTP and REST</h2>
+        
+        <ul>
+            <li>
+                Which HTTP error codes to use? <a href="http://www.aisee.com/graph_of_the_month/http.png">Here's the answer</a>.
+                Ok ok, I know :-)
+            </li>
+            <li>
+                But seriously, there are some rules that are worth following.
+            </li>
+            <li>
+                <strong>HttpResponseBadRequest() (400)</strong> seems to be a good choice when Django view is reached but request parameters are invalid.
+                Here are some good <a href="http://stackoverflow.com/questions/4781187/http-400-bad-request-for-logical-error-not-malformed-request-syntax">discussions</a> 
+                <a href="http://stackoverflow.com/questions/1364527/http-status-code-for-bad-data">on</a> this</a>.
+            </li>
+        </ul>
 
         <h2>Misc</h2>
         
