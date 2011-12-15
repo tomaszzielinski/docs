@@ -143,6 +143,36 @@ LANGUAGES = (
             </li>
         </ul>
 
+        <h2>Forms</h2>
+        
+        <ul>
+            <li>
+                Smart handling of forms in views (Credits go to <a href="http://speakerdeck.com/u/pydanny/p/advanced-django-forms-usage">PyDanny&Co</a>).
+                Instead of this:
+                <pre>
+def my_view(request):                 
+    if request.method == 'POST':
+        form = MyForm(request.POST)
+        if form.is_valid():
+            form.hooray()
+            return HttpResponseRedirect('/success/')
+    else:
+        form = MyForm()
+    return render_to_response('my_template.html', {'form': form})
+                </pre>
+                Do this:
+                <pre>
+def my_view(request):                     
+    form = MyForm(request.POST or None)
+    if form.is_valid():
+        form.hooray()
+        return HttpResponseRedirect('/success/')
+    return render_to_response('my_template.html', {'form': form})
+                </pre>
+                The catch here is that <em>form.is_valid()</em> returns <em>False</em> for unbound forms.
+            </li>
+        </ul>
+
         <h2>Misc</h2>
         
         <ul>
