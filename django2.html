@@ -177,6 +177,16 @@ def my_view(request):
         
         <ul>
             <li>
+                A good practice is to design your URL structure so that it more or less follows 
+                <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer#RESTful_web_services">the defacto standard convention</a>.
+                Note that this is mostly about "ordnung", not about being RESTful. It's very hard, if not impossible,
+                to write a RESTful website - and if you violate any of the REST principles, you're not RESTful anymore.
+                So just accept that and follow whatever is reasonable.
+            </li>
+            <li>
+                
+            </li>
+            <li>
                 Which HTTP error codes to use? <a href="http://www.aisee.com/graph_of_the_month/http.png">Here's the answer</a>.
                 Ok ok, I know :-)
             </li>
@@ -185,7 +195,7 @@ def my_view(request):
             </li>
             <li>
                 <strong>HttpResponseBadRequest [400]</strong> seems to be a good choice when Django view is reached but request parameters are invalid.
-                Here are some good <a href="http://stackoverflow.com/questions/4781187/http-400-bad-request-for-logical-error-not-malformed-request-syntax">discussions</a> 
+                Here are some <a href="http://stackoverflow.com/questions/5077871/what-is-the-proper-http-response-code-for-request-without-mandatory-fields">good</a> <a href="http://stackoverflow.com/questions/4781187/http-400-bad-request-for-logical-error-not-malformed-request-syntax">discussions</a> 
                 <a href="http://stackoverflow.com/questions/1364527/http-status-code-for-bad-data">on</a> this</a>.
             </li>
             <li>
