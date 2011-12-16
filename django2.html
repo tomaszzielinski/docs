@@ -213,9 +213,11 @@ def my_view(request):
                     If the new book resource is created, you get #201 response.
                 </p>
                 <p>
-                    Now, that's not how it works in Django (or any other web framework)! In Django, if there is any form validation error a normal response is returned,
+                    Now, that's not how it works in Django (or any other web framework)! In Django, if there is any form validation error a normal (i.e. #200) response is returned,
                     just with some additional HTML markup for errors. And if the new book resource is created, a #302 redirect is returned.
-                    Why is this such a bg deviantion from how it should look like in a RESTful case?
+                    Moreover, you POST to the very same URL which you get the form from - and not to the /books/ collection!
+                    
+                    Why do we have here such a big deviation from how it should look like in a RESTful case?
                 </p>
                 <p>
                     The answer is simple - the HTML form is kind of a separate application, a user interface to the server-side service.
