@@ -18,9 +18,10 @@
            * Expires: (now + 1 year)
            * Cache-Control: public, max-age=31536000
 
-          plus this one:
+           plus this one:
 
            * Last-Modified: (date)
+           
         * Thanks to the above headers, the browser caches the assets for up to one year - and in case it wants to check if an asset has changed,
           it sends a conditional request (using If-Modified-Since header) that makes it possible for the web server to reply with "304 Not Modified" status code.
         * [Perfect caching headers](http://www.allbuttonspressed.com/projects/django-mediagenerator#q-what-are-the-perfect-caching-headers)
@@ -36,9 +37,9 @@
                 FileETag None
             </Directory>
             ```
-            
+
         * That's basically all - for static assets there is no need to worry about things like proxy caches storing sensitive data etc.
-        * Ah, one more thing - you probably want to have Keep-Alive on for static assets, but it's not that good for your Django application.
+        * Ah, one more thing - you probably want to have **Keep-Alive** on for static assets, but it's not that good for your Django application.
           So better think about some nginx. [[Useful link]](http://serverfault.com/questions/73812/should-i-activate-keepalive-in-apache2)
     * Btw do not get frustrated if the caching doesn't work when you refresh the page using F5.
         [That's a known issue](http://stackoverflow.com/questions/3934413/chrome-why-is-it-sending-if-modified-since-requests/3934694#3934694).
