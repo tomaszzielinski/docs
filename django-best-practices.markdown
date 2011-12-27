@@ -142,8 +142,8 @@ The catch here is that *form.is_valid()* returns *False* for unbound forms.
 
     Why do we have here such a big deviation from how it should look like in a RESTful case?
 
-    The answer is simple - the HTML form is kind of a separate application, a user interface to the server-side service
-    - in the old days it would just be a standalone program. It's simply a coincidence (or signum temporis) that it's a part of the same web application.
+    The answer is simple - the HTML form is kind of a separate application, a user interface to the server-side service - in the old
+    days it would just be a standalone program. It's simply a coincidence (or signum temporis) that it's a part of the same web application.
 
     The moment we abandon the POST-REDIRECT-GET paradigm, and start POSTing forms to the backend using AJAX requests, we have a much cleaner separation
     of the user interface part and the underlying REST (or pseudo-REST) service. Only that the application is hooked to an URL in the same URL space..
