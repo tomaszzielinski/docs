@@ -113,23 +113,25 @@ The catch here is that *form.is_valid()* returns *False* for unbound forms.
     Note that this is mostly about "ordnung", not about being RESTful. It's very hard, if not impossible,
     to write a RESTful website - and if you violate any of the REST principles, you're not RESTful anymore.
     So just accept that and follow whatever is reasonable.
+
 * Still not conviced that REST is not what it appears to be (i.e. a way of naming URLs)? Check these resources (in random order):
     [S.O. thread #1](http://stackoverflow.com/questions/973796/what-are-the-best-uses-of-rest-services),
     [Roy Fielding's acrticle](http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven),
     [S.O. thread #2](http://stackoverflow.com/questions/2001773/understanding-rest-verbs-error-codes-and-authentication),
     [Example of RESTful web service design](http://www.peej.co.uk/articles/restfully-delicious.html).
+
 * Specifically, Django session are not RESTful (check these:
     [1](http://www.peej.co.uk/articles/no-sessions.html),
     [2](http://tech.groups.yahoo.com/group/rest-discuss/message/3583),
     [3](http://davidvancouvering.blogspot.com/2007/09/session-state-is-evil.html)).
     But they are great otherwise, so why not use them? Web development is not a purity contest!
+
 * Still, adopting parts of the REST philosophy is a good idea. Some readings:
     [1](http://stackoverflow.com/questions/6433480/restful-actions-services-that-dont-correspond-to-an-entity),
     [2](http://stackoverflow.com/questions/3408191/is-the-twitter-api-really-restful),
     [3](http://stackoverflow.com/questions/969585/rest-url-design-multiple-resources-in-one-http-call),
-    [4](http://stackoverflow.com/questions/2173721/why-does-including-an-action-verb-in-the-uri-in-a-rest-implementation-violate-th),
-    <a href="">5</a>
-    <a href=""></a>
+    [4](http://stackoverflow.com/questions/2173721/why-does-including-an-action-verb-in-the-uri-in-a-rest-implementation-violate-th)
+
 * "Get lost, my website is RESTful!!!!!" collapses if only it uses HTML forms. For illustration let's adding books to a catalog.
    To create a new book resource you POST data to /books/ collection. If there is any error, you can get one of the range of HTTP errors.
    If the new book resource is created, you get #201 response.
@@ -147,25 +149,32 @@ The catch here is that *form.is_valid()* returns *False* for unbound forms.
 
     So what to do about that? Just treat forms as non-REST parts, separate applications that happen to live in the same house.
     Use a consistent URL naming for them, like **/books/1/edit** and don't think about them more.
+
 * Some backup for what I've written above:
     [1](http://stackoverflow.com/questions/7259464/how-should-a-resource-edit-path-looks-like-on-a-restful-web-app),
     [2](http://stackoverflow.com/questions/1711653/three-step-buyonline-the-restful-way),
     [3](http://stackoverflow.com/questions/3432660/how-to-edit-a-resource),
     [4](http://stackoverflow.com/questions/1657454/how-to-do-a-restful-request-for-an-edit-form),
     [5](http://stackoverflow.com/questions/1269816/html-interface-to-restful-web-service-without-javascript).
+
 * Some more reading about "RESTful" URLs:
     [1](http://stackoverflow.com/questions/1827293/restful-urls-for-a-search-service-with-an-arbitrary-number-of-filtering-criteria),
     [2](http://stackoverflow.com/questions/7272472/how-to-specify-a-range-of-data-or-multiple-entities-in-a-restful-web-service).
+
 * Which HTTP error codes to use? [Here's the answer](http://www.aisee.com/graph_of_the_month/http.png).
    Ok ok, I know :-)
+
 * But seriously, there are some rules that are worth following.
+
 * **HttpResponseBadRequest [400]** seems to be a good choice when Django view is reached but request parameters are invalid.
     Here are some [good](http://stackoverflow.com/questions/5077871/what-is-the-proper-http-response-code-for-request-without-mandatory-fields) [discussions](http://stackoverflow.com/questions/4781187/http-400-bad-request-for-logical-error-not-malformed-request-syntax)
     [on](http://stackoverflow.com/questions/1364527/http-status-code-for-bad-data) this</a>.
+
 * **HttpResponseForbidden [403]** looks like a good choice to indicate that authentication is needed
     in a situation when redirect to the login page doesn't make sense - e.g. for AJAX requests.
     Note that there is also 401 code, but it is meant to be used for the purposes of [HTTP authentication](http://en.wikipedia.org/wiki/Basic_access_authentication),
     and not a custom one. ([A nice discussion](http://stackoverflow.com/questions/6113014/what-http-code-to-use-in-not-authenticated-and-not-authorized-cases) on this)
+
 
 ## Misc
 
