@@ -1,5 +1,5 @@
-Django 1.3 best practices
-=====================
+Django 1.3 tips & tricks
+========================
 
 
 ## settings.py
