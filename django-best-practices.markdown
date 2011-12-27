@@ -109,18 +109,18 @@ The catch here is that *form.is_valid()* returns *False* for unbound forms.
 ## HTTP and REST
 
 * A good practice is to design your URL structure so that it more or less follows
-    [the defacto standard convention](http://en.wikipedia.org/wiki/Representational_State_Transfer#RESTful_web_services).
+    [the de facto standard convention](http://en.wikipedia.org/wiki/Representational_State_Transfer#RESTful_web_services).
     Note that this is mostly about "ordnung", not about being RESTful. It's very hard, if not impossible,
     to write a RESTful website - and if you violate any of the REST principles, you're not RESTful anymore.
     So just accept that and follow whatever is reasonable.
 
-* Still not conviced that REST is not what it appears to be (i.e. a way of naming URLs)? Check these resources (in random order):
+* Still not convinced that REST is not what it appears to be (i.e. a way of naming URLs)? Check these resources (in random order):
     [S.O. thread #1](http://stackoverflow.com/questions/973796/what-are-the-best-uses-of-rest-services),
-    [Roy Fielding's acrticle](http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven),
+    [Roy Fielding's article](http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven),
     [S.O. thread #2](http://stackoverflow.com/questions/2001773/understanding-rest-verbs-error-codes-and-authentication),
     [Example of RESTful web service design](http://www.peej.co.uk/articles/restfully-delicious.html).
 
-* Specifically, Django session are not RESTful (check these:
+* Specifically, Django sessions are not RESTful (check these:
     [1](http://www.peej.co.uk/articles/no-sessions.html),
     [2](http://tech.groups.yahoo.com/group/rest-discuss/message/3583),
     [3](http://davidvancouvering.blogspot.com/2007/09/session-state-is-evil.html)).
@@ -132,23 +132,24 @@ The catch here is that *form.is_valid()* returns *False* for unbound forms.
     [3](http://stackoverflow.com/questions/969585/rest-url-design-multiple-resources-in-one-http-call),
     [4](http://stackoverflow.com/questions/2173721/why-does-including-an-action-verb-in-the-uri-in-a-rest-implementation-violate-th)
 
-* "Get lost, my website is RESTful!!!!!" collapses if only it uses HTML forms. For illustration let's adding books to a catalog.
-   To create a new book resource you POST data to /books/ collection. If there is any error, you can get one of the range of HTTP errors.
-   If the new book resource is created, you get #201 response.
+* *"Get lost, my website is RESTful!!!!!"* collapses if only it uses HTML forms. For illustration - let's imagine adding books to a catalog.
+    To create a new book resource you POST data to ```/books/``` collection. If there is any error, you can get one of the HTTP error codes.
+    If the new book resource is created, you get #201 response.
 
-    Now, that's not how it works in Django (or any other web framework)! In Django, if there is any form validation error a normal (i.e. #200) response is returned,
-    just with some additional HTML markup for errors. And if the new book resource is created, a #302 redirect is returned.
-    Moreover, you POST to the very same URL which you get the form from - and not to the /books/ collection!
+    Now, that's not how it works in Django (or any other web framework)! In Django, if there is any form validation error, a normal (i.e. #200) response is returned,
+    just with some additional HTML markup for presenting errors to the user. And even if the new book resource is created, a #302 redirect is returned.
+    Moreover, you POST to the very same URL which you get the form from - and not to the ```/books/``` collection!
 
     Why do we have here such a big deviation from how it should look like in a RESTful case?
 
-    The answer is simple - the HTML form is kind of a separate application, a user interface to the server-side service.
-    In the old days it would be a standalone program. It's simply a coincidence (or signum temporis) that it's a part of the same web application.
+    The answer is simple - the HTML form is kind of a separate application, a user interface to the server-side service
+    - in the old days it would just be a standalone program. It's simply a coincidence (or signum temporis) that it's a part of the same web application.
+
     The moment we abandon the POST-REDIRECT-GET paradigm, and start POSTing forms to the backend using AJAX requests, we have a much cleaner separation
     of the user interface part and the underlying REST (or pseudo-REST) service. Only that the application is hooked to an URL in the same URL space..
 
-    So what to do about that? Just treat forms as non-REST parts, separate applications that happen to live in the same house.
-    Use a consistent URL naming for them, like **/books/1/edit** and don't think about them more.
+    So what to do about that? Just treat forms as non-RESTful parts, separate applications that happen to live in the same house.
+    Use a consistent URL naming for them, like ```/books/1/edit``` and don't think about them more.
 
 * Some backup for what I've written above:
     [1](http://stackoverflow.com/questions/7259464/how-should-a-resource-edit-path-looks-like-on-a-restful-web-app),
@@ -171,16 +172,18 @@ The catch here is that *form.is_valid()* returns *False* for unbound forms.
     [on](http://stackoverflow.com/questions/1364527/http-status-code-for-bad-data) this</a>.
 
 * **HttpResponseForbidden [403]** looks like a good choice to indicate that authentication is needed
-    in a situation when redirect to the login page doesn't make sense - e.g. for AJAX requests.
+    in a situation when redirection to the login page doesn't make sense - e.g. for AJAX requests.
     Note that there is also 401 code, but it is meant to be used for the purposes of [HTTP authentication](http://en.wikipedia.org/wiki/Basic_access_authentication),
     and not a custom one. ([A nice discussion](http://stackoverflow.com/questions/6113014/what-http-code-to-use-in-not-authenticated-and-not-authorized-cases) on this)
 
 
 ## Misc
 
-When replacing models.py into models package, make sure that models there have app_label set in their Meta:
+When converting *models.py* into models package, make sure that models there have ```app_label``` set in their Meta:
+
 ```
 class Meta:
     app_label = 'app-name'
 ```
+
 Without this trick, Django won't see the models.
