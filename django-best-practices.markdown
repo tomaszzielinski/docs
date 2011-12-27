@@ -9,23 +9,29 @@ Django best practices
     and then a non-versioned settings.py which import the common stuff. This seems to be the preferred way.
 
 * ```PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))``` or
-    ```PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))``` - both forms seems to be actively used, they are pretty much equivalent
+    ```PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))``` - both forms seems to be actively used and they are pretty much equivalent.
 
-* Then, to get full file paths, use ```os.path.join(PROJECT_ROOT, 'dir1', 'myfile.txt')```
+* To get full file paths, use ```os.path.join(PROJECT_ROOT, 'dir1', 'myfile.txt')```.
 
 * ```TEMPLATE_DEBUG = True``` - you probably always want to have the detailed information about errors in templates. This is independent of DEBUG setting.
 
 * You may want to use
     [HttpOnly](http://www.codinghorror.com/blog/2008/08/protecting-your-cookies-httponly.html)
     [cookies](http://stackoverflow.com/questions/3529695/how-do-i-set-httponly-cookie-in-django):
-    ```SESSION_COOKIE_PATH = '/; HttpOnly'```
-    ```SESSION_COOKIE_HTTPONLY = True (In Django 1.3+?)```
+
+    ```
+    SESSION_COOKIE_PATH = '/; HttpOnly'
+    SESSION_COOKIE_HTTPONLY = True (In Django 1.3+?)
+    ```
 
 * For multilingual sites:
+
     ```USE_I18N = True```
     Possibly you want:
+
     ```USE_L10N = True```
     Language definitions:
+
     ```
     gettext = lambda s: s
     LANGUAGES = (
