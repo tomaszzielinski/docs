@@ -1,4 +1,4 @@
-Django best practices
+Django 1.3 best practices
 =====================
 
 ## settings.py
@@ -27,9 +27,11 @@ Django best practices
 * For multilingual sites:
 
     ```USE_I18N = True```
+
     Possibly you want:
 
     ```USE_L10N = True```
+
     Language definitions:
 
     ```
@@ -46,10 +48,8 @@ Django best practices
 ## (De facto) standard add-ons
 
 * [South migrations](http://south.aeracode.org/) - you might want to use the following settings:
-```
-[SKIP_SOUTH_TESTS](http://south.aeracode.org/docs/settings.html#skip-south-tests) = True
-[SOUTH_TESTS_MIGRATE](http://south.aeracode.org/docs/settings.html#south-tests-migrate) = False
-```
+  [SKIP_SOUTH_TESTS](http://south.aeracode.org/docs/settings.html#skip-south-tests) = True,
+  [SOUTH_TESTS_MIGRATE](http://south.aeracode.org/docs/settings.html#south-tests-migrate) = False
 
 * [Django Debug Toolbar](http://pypi.python.org/pypi/django-debug-toolbar/0.8.4) - make sure to configure it according to [docs](http://pypi.python.org/pypi/django-debug-toolbar/0.8.4#installation)
 
@@ -57,8 +57,8 @@ Django best practices
    It has been split into Sentry and [Raven](https://github.com/dcramer/raven) so both are needed.
    Note that because Sentry/Raven are meant to replace the default Django mechanism and also integrate deeply into the framework,
    some attention is needed during [configuration](http://raven.readthedocs.org/en/latest/config/django.html).
-   Also note that there were unsolved (are?) problems like [this one](https://github.com/dcramer/django-sentry/issues/210).
-   But still Sentry/Raven is the best such tool out there.
+   Also note that there were (still are?) unsolved problems like [this one](https://github.com/dcramer/django-sentry/issues/210).
+   But still, Sentry/Raven is probably the best such tool out there.
 
 ## MySQL 5.x
 
@@ -74,7 +74,7 @@ Django best practices
     [[more]](https://docs.djangoproject.com/en/1.3/ref/databases/#creating-your-tables)
 
 * You can make the InnoDB engine the default one in my.cnf file,
-  and you don't even have to modify the global my.cnf but use a [custom config file](https://docs.djangoproject.com/en/1.3/ref/databases/#connecting-to-the-database) for you Django project.
+  and you don't even have to modify the global my.cnf but use a [custom config file](https://docs.djangoproject.com/en/1.3/ref/databases/#connecting-to-the-database) for your Django project.
 
 ## Forms
 
@@ -91,9 +91,11 @@ def my_view(request):
     else:
         form = MyForm()
     return render_to_response('my_template.html', {'form': form})
-                ```
-                Do this:
-                ```
+```
+
+Do this:
+
+```
 def my_view(request):
     form = MyForm(request.POST or None)
     if form.is_valid():
@@ -101,6 +103,7 @@ def my_view(request):
         return HttpResponseRedirect('/success/')
     return render_to_response('my_template.html', {'form': form})
 ```
+
 The catch here is that *form.is_valid()* returns *False* for unbound forms.
 
 ## HTTP and REST
