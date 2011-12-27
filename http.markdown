@@ -63,8 +63,8 @@
 
 ## Other HTTP performance tips
 
-* Read <a href="http://developer.yahoo.com/performance/">Yahoo guidelines<a/>
-* Read <a href="http://code.google.com/intl/pl-PL/speed/articles/">Google guidelines<a/>
+* Read [Yahoo guidelines](http://developer.yahoo.com/performance/)
+* Read [Google guidelines](http://code.google.com/intl/pl-PL/speed/articles/)
 * Use [YSlow](http://developer.yahoo.com/yslow/), [PageSpeed](http://code.google.com/intl/pl-PL/speed/page-speed/) or even "Audits" tool from Chrome inspector to learn what are the bottlenecks of your site
 * There are also other online: [Pingdom](http://tools.pingdom.com/fpt/), [Redbot](http://redbot.org/)
 * One thing that I think is interesting: [optimize the order of stylesheets and scripts](http://code.google.com/intl/pl-PL/speed/page-speed/docs/rtt.html#PutStylesBeforeScripts)
