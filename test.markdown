@@ -1,3 +1,8 @@
+---
+layout: post
+title: My title
+---
+
 This is my *markdown*
 
 Test
