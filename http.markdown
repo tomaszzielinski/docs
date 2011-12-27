@@ -21,7 +21,7 @@
            plus this one:
 
            * Last-Modified: (date)
-           
+
         * Thanks to the above headers, the browser caches the assets for up to one year - and in case it wants to check if an asset has changed,
           it sends a conditional request (using If-Modified-Since header) that makes it possible for the web server to reply with "304 Not Modified" status code.
         * [Perfect caching headers](http://www.allbuttonspressed.com/projects/django-mediagenerator#q-what-are-the-perfect-caching-headers)
@@ -45,21 +45,23 @@
         [That's a known issue](http://stackoverflow.com/questions/3934413/chrome-why-is-it-sending-if-modified-since-requests/3934694#3934694).
 
 ## HTTP caching for Django views
-    * There's probably no single setup suitable for all your views (pages)
-    * So let me just give you a few links:
-        * [Caching in IE9](http://blogs.msdn.com/b/ie/archive/2010/07/14/caching-improvements-in-internet-explorer-9.aspx)
-          Take a look at Vary-related issues, HTTPS caching, redirect caching etc..
-          It's not trivial to set it all up properly.
-        * [Controlling HTTP caching from Django](https://docs.djangoproject.com/en/1.3/topics/cache/#upstream-caches)
-        * [django.utils.cache module](https://docs.djangoproject.com/en/1.3/ref/utils/#module-django.utils.cache)
-    * Because of all these things to consider, if you don't have enough manpower to handle it properly,
-      I think that it's not that unreasonable to just disable HTTP caching using something like this (idea borrowed from Google Docs):
-      ```
-      response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
-      response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'
-      ```
-      Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to users etc.
-      (Btw using **must-revalidate** causes the back button in the browser to refresh (reload) the page when pressed.)
+* There's probably no single setup suitable for all your views (pages)
+* So let me just give you a few links:
+    * [Caching in IE9](http://blogs.msdn.com/b/ie/archive/2010/07/14/caching-improvements-in-internet-explorer-9.aspx)
+      Take a look at Vary-related issues, HTTPS caching, redirect caching etc..
+      It's not trivial to set it all up properly.
+    * [Controlling HTTP caching from Django](https://docs.djangoproject.com/en/1.3/topics/cache/#upstream-caches)
+    * [django.utils.cache module](https://docs.djangoproject.com/en/1.3/ref/utils/#module-django.utils.cache)
+* Because of all these things to consider, if you don't have enough manpower to handle it properly,
+  I think that it's not that unreasonable to just disable HTTP caching using something like this (idea borrowed from Google Docs):
+
+  ```
+  response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
+  response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'
+  ```
+  
+  Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to users etc.
+  (Btw using **must-revalidate** causes the back button in the browser to refresh (reload) the page when pressed.)
 
 ## Useful links
 * [HTTP 1.1 - RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)
