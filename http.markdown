@@ -13,7 +13,7 @@
     * Your picked assed manager should be able to:
         * Combine & minimize CSS and JS scripts, preferably using [YUI Compressor](http://developer.yahoo.com/yui/compressor/) and/or
         [Google Closure Compiler](http://code.google.com/intl/pl-PL/closure/compiler/)
-        * Version the assets, i.e. give them unique names like <strong>sitescripts.1fhdysjnry46.js</strong>
+        * Version the assets, i.e. give them unique names like **sitescripts.1fhdysjnry46.js**
          - this is required to efficiently cache them
         * Now, you want your web server to serve the assets with one of:
            * Expires: (now + 1 year)
@@ -55,7 +55,7 @@
       response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'
       ```
       Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to users etc.
-      (Btw using <strong>must-revalidate</strong> causes the back button in the browser to refresh (reload) the page when pressed.)
+      (Btw using **must-revalidate** causes the back button in the browser to refresh (reload) the page when pressed.)
 
 ## Useful links
 * [HTTP 1.1 - RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)
@@ -74,7 +74,7 @@
 ## Non-HTTP caching and Django
 
 * Learn to use [the cache framework](https://docs.djangoproject.com/en/1.3/topics/cache/)
-* Employ [template source caching](https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types) - look for <strong>django.template.loaders.cached.Loader</strong>
+* Employ [template source caching](https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types) - look for **django.template.loaders.cached.Loader**
 * Consider using [two-phased template rendering](http://www.holovaty.com/writing/django-two-phased-rendering/)
 * Try [Redis](http://redis.io/), it's more powerful than [Memcached](http://memcached.org/) and not slower.
   Even if you're not impressed by its [command set](http://redis.io/commands) it has one major advantage over Memcached...
