@@ -7,15 +7,20 @@ Django best practices
     ```import settings_local```
     which has a versioned template *settings_local.py.template*, or use the reverse approach - have a common settings file, e.g. *common_settings.py*
     and then a non-versioned settings.py which import the common stuff. This seems to be the preferred way.
+
 * ```PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))``` or
     ```PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))``` - both forms seems to be actively used, they are pretty much equivalent
+
 * Then, to get full file paths, use ```os.path.join(PROJECT_ROOT, 'dir1', 'myfile.txt')```
+
 * ```TEMPLATE_DEBUG = True``` - you probably always want to have the detailed information about errors in templates. This is independent of DEBUG setting.
+
 * You may want to use
     [HttpOnly](http://www.codinghorror.com/blog/2008/08/protecting-your-cookies-httponly.html)
     [cookies](http://stackoverflow.com/questions/3529695/how-do-i-set-httponly-cookie-in-django):
     ```SESSION_COOKIE_PATH = '/; HttpOnly'```
     ```SESSION_COOKIE_HTTPONLY = True (In Django 1.3+?)```
+
 * For multilingual sites:
     ```USE_I18N = True```
     Possibly you want:
@@ -28,6 +33,7 @@ Django best practices
         ('en', gettext('English')),
     )
     ```
+
 * If you use a global (per-project) template folder:
     ```TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, 'templates'),)```
 
@@ -38,7 +44,9 @@ Django best practices
 [SKIP_SOUTH_TESTS](http://south.aeracode.org/docs/settings.html#skip-south-tests) = True
 [SOUTH_TESTS_MIGRATE](http://south.aeracode.org/docs/settings.html#south-tests-migrate) = False
 ```
+
 * [Django Debug Toolbar](http://pypi.python.org/pypi/django-debug-toolbar/0.8.4) - make sure to configure it according to [docs](http://pypi.python.org/pypi/django-debug-toolbar/0.8.4#installation)
+
 * [Django Sentry](https://github.com/dcramer/django-sentry) - the preferred way to catch exceptions and log messages.
    It has been split into Sentry and [Raven](https://github.com/dcramer/raven) so both are needed.
    Note that because Sentry/Raven are meant to replace the default Django mechanism and also integrate deeply into the framework,
@@ -53,10 +61,12 @@ Django best practices
 * To convert an existing table with different encoding, use:
     ```ALTER TABLE tab CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;```
     Note that <strong>CONVERT TO</strong> is critical to do the actual encoding conversion.
+
 * Make sure you tables use the InnoDB engine.
     You can make sure that it is so by adding this line to your database configuration:
     ```'OPTIONS': {'init_command': 'SET storage_engine=INNODB',}```
     [[more]](https://docs.djangoproject.com/en/1.3/ref/databases/#creating-your-tables)
+
 * You can make the InnoDB engine the default one in my.cnf file,
   and you don't even have to modify the global my.cnf but use a [custom config file](https://docs.djangoproject.com/en/1.3/ref/databases/#connecting-to-the-database) for you Django project.
 
@@ -64,6 +74,7 @@ Django best practices
 
 Smart handling of forms in views (Credits go to [PyDanny&Co](http://speakerdeck.com/u/pydanny/p/advanced-django-forms-usage)).
 Instead of this:
+
 ```
 def my_view(request):
     if request.method == 'POST':
