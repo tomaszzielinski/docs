@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+
+  <title>tomaszzielinski/docs @ GitHub</title>
+
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      background-color: #ffffff;
+      font-family: Helvetica, Arial, FreeSans, san-serif;
+      color: #000000;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
+    h1 .small { font-size: 0.4em; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 1.5em; color: #000000; }
+    h3 { text-align: center; color: #000000; }
+    a { color: #000000; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+    pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+  </style>
+</head>
+
+<body>
+  <a href="https://github.com/tomaszzielinski/docs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="https://github.com/tomaszzielinski/docs/zipball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
+      <a href="https://github.com/tomaszzielinski/docs/tarball/master">
+        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="https://github.com/tomaszzielinski/docs">Speeding up you Django website</a>
+      <span class="small">by <a href="https://github.com/tomaszzielinski">tomaszzielinski</a></span></h1>
+
+    <div class="description">
+        <h2><a href="http://www.mnot.net/cache_docs/">Introduction to HTTP caching</a></h2>
+        
+        <h2>Django and HTTP caching for static assets</h2>
+        
+        <ul>
+            <li>
+                Use an asset manager. There is one shipped with Django 1.3+
+                (<a href="https://docs.djangoproject.com/en/1.3/howto/static-files/">django.contrib.staticfiles</a>)
+                but it's not too powerful
+            </li>
+            <li>Pick your favourite one from <a href="http://djangopackages.com/grids/g/asset-managers/">django-pluggables</a></li>
+            <li>A pretty great one is <a href="http://www.allbuttonspressed.com/projects/django-mediagenerator">django-mediagenerator</a>. 
+            (Hopefully someone will <a href="http://www.allbuttonspressed.com/goodbye#comment-372779409">maintain it</a>)</li>
+            <li>Your picked assed manager should be able to:
+             <ul>
+              <li>Combine & minimize CSS and JS scripts, preferably using 
+                <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a> and/or
+                <a href="http://code.google.com/intl/pl-PL/closure/compiler/">Google Closure Compiler</a></li>
+              <li>Version the assets, i.e. give them unique names like <strong>sitescripts.1fhdysjnry46.js</strong>
+                 - this is required to efficiently cache them</li>
+              <li>Now, you want your web server to serve the assets with one of:
+                 <ul>
+                   <li>Expires: (now + 1 year)</li>
+                   <li>Cache-Control: public, max-age=31536000</li>
+                 </ul>
+                 and
+                 <ul>
+                   <li>Last-Modified: (date)</li>
+                 </ul>
+              </li>
+              <li>Thanks to the above headers, the browser caches the assets for up to one year - and in case it wants to check if an asset has changed,
+                  it sends a conditional request (using If-Modified-Since header) that makes it possible for the web server to reply with "304 Not Modified" status code.
+              </li>
+              <li><a href="http://www.allbuttonspressed.com/projects/django-mediagenerator#q-what-are-the-perfect-caching-headers">Perfect caching headers</a></li>
+              <li><a href="http://developer.yahoo.com/performance/rules.html#expires">Even more, from Yahoo</a></li>
+              <li>In Apache one need to add something like this to the virtual host definition (after making sure that the relevant modules are loaded):              
+              <pre>
+&lt;Directory /my/project/dir/_generated_media&gt;
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+    Header merge Cache-Control "public"
+    Header unset Etag
+    FileETag None
+&lt;/Directory&gt;
+              </pre>
+              <li>That's basically all - for static assets there is no need to worry about things like proxy caches storing sensitive data etc.</li>
+              <li>Ah, one more thing - you probably want to have Keep-Alive on for static assets, but it's not that good for your Django application.
+                  So better think about some nginx. <a href="http://serverfault.com/questions/73812/should-i-activate-keepalive-in-apache2">[Useful link]</a>
+              </li>
+             </ul>
+            </li>
+            <li>Btw do not get frustrated if the caching doesn't work when you refresh the page using F5. 
+                <a href="http://stackoverflow.com/questions/3934413/chrome-why-is-it-sending-if-modified-since-requests/3934694#3934694">That's a known issue</a>.</li>
+        </ul>
+
+        <h2>HTTP caching for Django views</h2>
+        
+        <ul>
+            <li>There's probably no single setup suitable for all your views (pages)</li>
+            <li>So let me just give you a few links</li>
+            <li>
+               <a href="http://blogs.msdn.com/b/ie/archive/2010/07/14/caching-improvements-in-internet-explorer-9.aspx">Caching in IE9</a>
+               Take a look at Vary-related issues, HTTPS caching, redirect caching etc.. 
+               It's not trivial to set it all up properly.
+            </li>
+            <li><a href="https://docs.djangoproject.com/en/1.3/topics/cache/#upstream-caches">Controlling HTTP caching from Django</a></li>
+            <li><a href="https://docs.djangoproject.com/en/1.3/ref/utils/#module-django.utils.cache">django.utils.cache module</a></li>
+            <li>Because of all these things to consider, if you don't have enough manpower to handle it properly,
+               I think that it's not that unreasonable to just disable HTTP caching using something like this (idea borrowed from Google Docs):
+               <pre>
+        response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
+        response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'               
+               </pre>
+               Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to users etc.
+               (Btw using <strong>must-revalidate</strong> causes the back button in the browser to refresh (reload) the page when pressed.)
+        </ul>
+
+        <h2>Useful links</h2>
+        <ul>
+            <li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">HTTP 1.1 - RFC 2616</a></li>
+            <li><a href="http://palisade.plynt.com/issues/2008Jul/cache-control-attributes/">Cache-Control summary</a></li>
+        </ul>
+        
+        <h2>Other HTTP performance tips</h2>
+        
+        <ul>
+          <li>Read <a href="http://developer.yahoo.com/performance/">Yahoo guidelines<a/></li>
+          <li>Read <a href="http://code.google.com/intl/pl-PL/speed/articles/">Google guidelines<a/></li>
+          <li>Use <a href="http://developer.yahoo.com/yslow/">YSlow</a>, <a href="http://code.google.com/intl/pl-PL/speed/page-speed/">PageSpeed</a> or even "Audits" tool from Chrome inspector to learn what are the bottlenecks of your site</li>
+          <li>There are also other online: <a href="http://tools.pingdom.com/fpt/">Pingdom</a>, <a href="http://redbot.org/">Redbot</a></li>
+          <li>One thing that I think is interesting: <a href="http://code.google.com/intl/pl-PL/speed/page-speed/docs/rtt.html#PutStylesBeforeScripts">optimize the order of stylesheets and scripts</a></li>
+        </ul>
+
+        <h2>Remember, <a href="http://www.codinghorror.com/blog/2011/06/performance-is-a-feature.html">performance is a feature</a>!</h2>
+        
+        <h2>Non-HTTP caching and Django</h2>
+        
+        <ul>
+           <li>Learn to use <a href="https://docs.djangoproject.com/en/1.3/topics/cache/">the cache framework</a></li>
+           <li>Employ <a href="https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types">template source caching</a> - look for <strong>django.template.loaders.cached.Loader</strong></li>
+           <li>Consider using <a href="http://www.holovaty.com/writing/django-two-phased-rendering/">two-phased template rendering</a></li>
+           <li>Try <a href="http://redis.io/">Redis</a>, it's more powerful than <a href="http://memcached.org/">Memcached</a> and not slower. 
+               Even if you're not impressed by its <a href="http://redis.io/commands">command set</a> it has one major advantage over Memcached...</li>
+           <li>...which is the persistent storage. It's not only great because of being persistent, but also because it allows to decrease the chances
+               to learn <a href="http://highscalability.com/strategy-break-memcache-dog-pile">dog piling</a> aka <a href="http://books.google.pl/books?id=m-bDb87UWL0C&pg=PA357&lpg=PA357&dq=thundering+herd+memcache&source=bl&ots=VURP6rGOpI&sig=oa-uHNZpj5IATTg_P_eF7852iWY&hl=pl&ei=6lqwTvX-E9T54QT73dicAQ&sa=X&oi=book_result&ct=result&resnum=4&ved=0CD0Q6AEwAw#v=onepage&q=thundering%20herd%20memcache&f=false">thundering herd</a> problem in practice.
+               If you can dump you cache data and reload it late then server crashes or restarts don't hurt that much.</li>
+           <li>A nice <a href="http://simonwillison.net/static/2010/redis-tutorial/">Redis tutorial</a></li>
+           <li>Btw, the thundering herd problem is related also to the normal usage of the cache - check <a href="https://github.com/ericflo/django-newcache/blob/master/README.txt#L79">django-newcache README</a></li>
+        </ul>
+        
+        
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+      <h2>Contact</h2>
+      <p> (tomasz.zielinski@pyconsultant.eu)
+<br/>      </p>
+    
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="https://github.com/tomaszzielinski/docs/zipball/master">zip</a> or
+      <a href="https://github.com/tomaszzielinski/docs/tarball/master">tar formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/tomaszzielinski/docs</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="https://github.com/tomaszzielinski/docs">tomaszzielinski/docs</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

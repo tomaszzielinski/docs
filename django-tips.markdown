@@ -13,4 +13,4 @@ title: Django tips
     [3](http://www.ietf.org/rfc/rfc1738.txt),
     [4](http://www.codinghorror.com/blog/2008/08/protecting-your-cookies-httponly.html).
 * [model.Meta.order_with_respect_to](https://docs.djangoproject.com/en/dev/ref/models/options/#order-with-respect-to)
-* [The difference](https://docs.djangoproject.com/en/1.3/topics/db/queries/#spanning-multi-valued-relationships) between ```python Model.objects.filter(a__x=1, a__y=2)``` and ```python Model.objects.filter(a__x=1).filter(a__y=2)```
+* [The difference](https://docs.djangoproject.com/en/1.3/topics/db/queries/#spanning-multi-valued-relationships) between ```Model.objects.filter(a__x=1, a__y=2)``` and ```Model.objects.filter(a__x=1).filter(a__y=2)```
