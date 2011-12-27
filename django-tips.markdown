@@ -12,5 +12,12 @@ title: Django tips
     [2](http://www.codinghorror.com/blog/2008/10/the-problem-with-urls.html),
     [3](http://www.ietf.org/rfc/rfc1738.txt),
     [4](http://www.codinghorror.com/blog/2008/08/protecting-your-cookies-httponly.html).
-* [model.Meta.order_with_respect_to](https://docs.djangoproject.com/en/dev/ref/models/options/#order-with-respect-to)
+* [model.Meta.order_with_respect_to](https://docs.djangoproject.com/en/dev/ref/models/options/#order-with-respect-to) - adds an additional field to the model, purely for ordering purposes.
+  The code behind this feature:
+  [1](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/base.py#L227),
+  [2](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/base.py#L532),
+  [3](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/base.py#L603),
+  [4](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/base.py#L860),
+  [5](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/options.py#L114),
+  [6](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/fields/proxy.py)
 * [The difference](https://docs.djangoproject.com/en/1.3/topics/db/queries/#spanning-multi-valued-relationships) between ```Model.objects.filter(a__x=1, a__y=2)``` and ```Model.objects.filter(a__x=1).filter(a__y=2)```
