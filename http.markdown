@@ -13,12 +13,11 @@
     * Your picked assed manager should be able to:
         * Combine & minimize CSS and JS scripts, preferably using [YUI Compressor](http://developer.yahoo.com/yui/compressor/) and/or
         [Google Closure Compiler](http://code.google.com/intl/pl-PL/closure/compiler/)
-        * Version the assets, i.e. give them unique names like **sitescripts.1fhdysjnry46.js**
-         - this is required to efficiently cache them
-        * Now, you want your web server to serve the assets with one of:
+        * Version the assets, i.e. give them unique names like **sitescripts.1fhdysjnry46.js** - this is required to efficiently cache them
+        * Now, you want your web server to serve the assets with one of these headers:
            * Expires: (now + 1 year)
            * Cache-Control: public, max-age=31536000
-         and
+          plus this one:
            * Last-Modified: (date)
         * Thanks to the above headers, the browser caches the assets for up to one year - and in case it wants to check if an asset has changed,
           it sends a conditional request (using If-Modified-Since header) that makes it possible for the web server to reply with "304 Not Modified" status code.
