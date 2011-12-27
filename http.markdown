@@ -24,6 +24,7 @@ Speeding up your Django websites
         * [Perfect caching headers](http://www.allbuttonspressed.com/projects/django-mediagenerator#q-what-are-the-perfect-caching-headers)
         * [Even more, from Yahoo](http://developer.yahoo.com/performance/rules.html#expires)
         * In Apache one need to add something like this to the virtual host definition (after making sure that the relevant modules are loaded):
+
           ```
             <Directory /my/project/dir/_generated_media>
                 ExpiresActive On
@@ -49,6 +50,7 @@ Speeding up your Django websites
     * [django.utils.cache module](https://docs.djangoproject.com/en/1.3/ref/utils/#module-django.utils.cache)
 * Because of all these things to consider, if you don't have enough manpower to handle it properly,
   I think that it's not that unreasonable to just disable HTTP caching using something like this (idea borrowed from Google Docs):
+  
   ```
   response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
   response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'
