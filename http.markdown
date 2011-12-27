@@ -17,13 +17,16 @@
         * Now, you want your web server to serve the assets with one of these headers:
            * Expires: (now + 1 year)
            * Cache-Control: public, max-age=31536000
+
           plus this one:
+
            * Last-Modified: (date)
         * Thanks to the above headers, the browser caches the assets for up to one year - and in case it wants to check if an asset has changed,
           it sends a conditional request (using If-Modified-Since header) that makes it possible for the web server to reply with "304 Not Modified" status code.
         * [Perfect caching headers](http://www.allbuttonspressed.com/projects/django-mediagenerator#q-what-are-the-perfect-caching-headers)
         * [Even more, from Yahoo](http://developer.yahoo.com/performance/rules.html#expires)
         * In Apache one need to add something like this to the virtual host definition (after making sure that the relevant modules are loaded):
+
             ```
             <Directory /my/project/dir/_generated_media>
                 ExpiresActive On
@@ -33,6 +36,7 @@
                 FileETag None
             </Directory>
             ```
+            
         * That's basically all - for static assets there is no need to worry about things like proxy caches storing sensitive data etc.
         * Ah, one more thing - you probably want to have Keep-Alive on for static assets, but it's not that good for your Django application.
           So better think about some nginx. [[Useful link]](http://serverfault.com/questions/73812/should-i-activate-keepalive-in-apache2)
