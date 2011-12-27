@@ -59,7 +59,7 @@
   response['Cache-Control'] = 'no-cache, no-store, max-age=0, must-revalidate'
   response['Expires'] = 'Fri, 01 Jan 2010 00:00:00 GMT'
   ```
-  
+
   Otherwise you would have to make sure that there's no leak of sensitive data, no old content is presented to users etc.
   (Btw using **must-revalidate** causes the back button in the browser to refresh (reload) the page when pressed.)
 
@@ -84,9 +84,9 @@
 * Consider using [two-phased template rendering](http://www.holovaty.com/writing/django-two-phased-rendering/)
 * Try [Redis](http://redis.io/), it's more powerful than [Memcached](http://memcached.org/) and not slower.
   Even if you're not impressed by its [command set](http://redis.io/commands) it has one major advantage over Memcached...
-* ...which is the persistent storage. It's not only great because of being persistent, but also because it allows to decrease the chances
-  to learn [dog piling](http://highscalability.com/strategy-break-memcache-dog-pile) aka [thundering herd](http://books.google.pl/books?id=m-bDb87UWL0C&pg=PA357&lpg=PA357&dq=thundering+herd+memcache&source=bl&ots=VURP6rGOpI&sig=oa-uHNZpj5IATTg_P_eF7852iWY&hl=pl&ei=6lqwTvX-E9T54QT73dicAQ&sa=X&oi=book_result&ct=result&resnum=4&ved=0CD0Q6AEwAw#v=onepage&q=thundering%20herd%20memcache&f=false) problem in practice.
-  If you can dump you cache data and reload it late then server crashes or restarts don't hurt that much.
+* ...which is the persistent storage. It's great not only because of being persistent, but also because it allows to decrease the chances
+  of learning [dog piling](http://highscalability.com/strategy-break-memcache-dog-pile) aka [thundering herd](http://books.google.pl/books?id=m-bDb87UWL0C&pg=PA357&lpg=PA357&dq=thundering+herd+memcache&source=bl&ots=VURP6rGOpI&sig=oa-uHNZpj5IATTg_P_eF7852iWY&hl=pl&ei=6lqwTvX-E9T54QT73dicAQ&sa=X&oi=book_result&ct=result&resnum=4&ved=0CD0Q6AEwAw#v=onepage&q=thundering%20herd%20memcache&f=false) problem in practice.
+  If you can dump your cached data and reload it later, then server crashes or restarts don't hurt that much.
 * A nice [Redis tutorial](http://simonwillison.net/static/2010/redis-tutorial/)
 * Btw, the thundering herd problem is related also to the normal usage of the cache - check [django-newcache README](https://github.com/ericflo/django-newcache/blob/master/README.txt#L79)
 
