@@ -4,7 +4,7 @@ Python 2.x rarities
 # Slicing, extended slicing, *Ellipsis* - ```a[i:j:step], a[i:j, k:l], a[..., i:j]```
 
 More:
-[1](http://docs.python.org/library/functions.html#slice),
+[1](http://docs.python.org/release/2.7/library/functions.html#slice),
 [2](http://stackoverflow.com/questions/118370/how-do-you-use-the-ellipsis-slicing-syntax-in-python),
 [3](http://stackoverflow.com/questions/772124/what-does-the-python-ellipsis-object-do)
 
@@ -20,7 +20,7 @@ More:
 
 # *NotImplemented*
 
-[http://docs.python.org/library/constants.html#NotImplemented](Special value which can be returned by the "rich comparison" special methods (__eq__(), __lt__(), and friends), to indicate that the comparison is not implemented with respect to the other type.)
+[Special value which can be returned by the "rich comparison" special methods (__eq__(), __lt__(), and friends), to indicate that the comparison is not implemented with respect to the other type.](http://docs.python.org/release/2.7/library/constants.html#NotImplemented)
 
 [*NotImplemented* and reflected operands](http://stackoverflow.com/questions/101268/hidden-features-of-python/3693838#3693838)
 
