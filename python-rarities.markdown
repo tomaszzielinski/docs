@@ -2,7 +2,7 @@ Python 2.x rarities
 ========================
 
 
-# Slicing, extended slicing, *Ellipsis* - ```a[i:j:step], a[i:j, k:l], a[..., i:j]```
+## Slicing, extended slicing, *Ellipsis* - ```a[i:j:step], a[i:j, k:l], a[..., i:j]```
 
 More:
 [1](http://docs.python.org/release/2.7/library/functions.html#slice),
@@ -19,24 +19,24 @@ More:
 (2, slice(1, 3, None), slice(1, 4, 6), Ellipsis, slice(4, None, None), slice(None, 6, None), slice(None, None, None), slice(None, None, -1))
 ```
 
-# *NotImplemented*
+## *NotImplemented*
 
 [Special value which can be returned by the "rich comparison" special methods (__eq__(), __lt__(), and friends), to indicate that the comparison is not implemented with respect to the other type.](http://docs.python.org/release/2.7/library/constants.html#NotImplemented)
 
 [*NotImplemented* and reflected operands](http://stackoverflow.com/questions/101268/hidden-features-of-python/3693838#3693838)
 
 
-# *iter(obj, sentinel)*
+## *iter(obj, sentinel)*
 
 [The iter(callable, until_value) function repeatedly calls callable and yields its result until until_value is returned](http://stackoverflow.com/questions/101268/hidden-features-of-python/102202#102202)
 
 Example: ```for line in iter(f.read(), '\n'): ...```
 
 
-# [Rot13 source encoding](http://stackoverflow.com/questions/101268/hidden-features-of-python/1024693#1024693)
+## [Rot13 source encoding](http://stackoverflow.com/questions/101268/hidden-features-of-python/1024693#1024693)
 
 
-# [Negative *round()*](http://stackoverflow.com/questions/101268/hidden-features-of-python/373949#373949)
+## [Negative *round()*](http://stackoverflow.com/questions/101268/hidden-features-of-python/373949#373949)
 
 Negative precision affects digits in front of the decimal point:
 
