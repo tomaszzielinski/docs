@@ -160,12 +160,13 @@ MetaC.__new__: <class '__main__.MetaC'> ('MetaC', (<type 'type'>,), {'__call__':
 MetaC().__init__: <class '__main__.MetaC'> ('MetaC', (<type 'type'>,), {'__call__': <function __call__ at 0x9413224>, '__module__': '__main__', '__metaclass__': <class '__main__.MetaC'>, '__new__': <function __new__ at 0x94132cc>, '__init__': <function __init__ at 0x9413304>}) {}
 ```
 
+
 ## Further reading
 
 + http://python.org/doc/newstyle/
 + http://docs.python.org/reference/datamodel.html, especially http://docs.python.org/reference/datamodel.html#customizing-class-creation
 + http://stackoverflow.com/questions/395982/metaclass-new-cls-and-super-can-someone-explain-the-mechanism-exa/396109
-+ http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python
++ http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python, http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python/6581949#6581949
 + http://stackoverflow.com/questions/3798835/understanding-get-and-set-and-python-descriptors
 + http://docs.python.org/reference/datamodel.html#implementing-descriptors
 + http://docs.python.org/howto/descriptor.html#invoking-descriptors
@@ -175,7 +176,3 @@ MetaC().__init__: <class '__main__.MetaC'> ('MetaC', (<type 'type'>,), {'__call_
 + http://users.rcn.com/python/download/Descriptor.htm
 + Python descriptors/descriptor protocol: http://users.rcn.com/python/download/Descriptor.htm, http://docs.python.org/howto/descriptor.html, http://martyalchin.com/2007/nov/23/python-descriptors-part-1-of-2/
 + Descriptors vs bound/unbound methods: http://stackoverflow.com/questions/1015307/python-bind-an-unbound-method, http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static/114289#114289, http://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static/114289#114289
-
-## TODO
-
-+ http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python/6581949#6581949
