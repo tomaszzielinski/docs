@@ -1,6 +1,7 @@
 Python 2.x rarities
 ========================
 
+
 # Slicing, extended slicing, *Ellipsis* - ```a[i:j:step], a[i:j, k:l], a[..., i:j]```
 
 More:
@@ -25,7 +26,7 @@ More:
 [*NotImplemented* and reflected operands](http://stackoverflow.com/questions/101268/hidden-features-of-python/3693838#3693838)
 
 
-# *iter(callable, sentinel)*
+# *iter(obj, sentinel)*
 
 [The iter(callable, until_value) function repeatedly calls callable and yields its result until until_value is returned](http://stackoverflow.com/questions/101268/hidden-features-of-python/102202#102202)
 
