@@ -142,6 +142,7 @@ Without this trick, Django won't see the models.
   [5](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/options.py#L114),
   [6](https://code.djangoproject.com/browser/django/tags/releases/1.3/django/db/models/fields/proxy.py)
 * [The difference](https://docs.djangoproject.com/en/1.3/topics/db/queries/#spanning-multi-valued-relationships) between ```Model.objects.filter(a__x=1, a__y=2)``` and ```Model.objects.filter(a__x=1).filter(a__y=2)```
+* [A neat trick with aggregation and filtering](https://docs.djangoproject.com/en/1.3/topics/db/aggregation/#order-of-annotate-and-filter-clauses) - if ```.filter()``` precedes ```.annotate()``` then the annotation is applied only to the filtered elements.
 
 
 REST, HTTP and Django
