@@ -47,3 +47,13 @@ Negative precision affects digits in front of the decimal point:
 '1234.57'
 ```
 
+
+
+
+TO DO
+=====
+
+Reversing a string or list (or more general - a sequence) is as simple as making a copy of it with negative increment: sequence[::-1]  - which is equivalent to  sequence[-1::-1]  (see: Extended slices)
+http://docs.python.org/release/2.3.5/whatsnew/section-slices.html
+
+
