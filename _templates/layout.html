@@ -1,0 +1,19 @@
+{% extends '!layout.html' %}
+
+{% block footer %}
+{# Adaptation of the default Sphinx base theme's footer: https://bitbucket.org/birkenfeld/sphinx/src/1f3a2749df39/sphinx/themes/basic/layout.html#cl-185
+   Sphinx license: https://bitbucket.org/birkenfeld/sphinx/src/1f3a2749df39/LICENSE :P
+   Basically I just customized the copyright clause.
+#}
+<div class="footer">
+    &copy; Copyright 2012,
+    <a href="https://plus.google.com/105897381673403508112?rel=author">Tomasz Zieliński</a>,
+    <a href="http://pyconsultant.eu">pyconsultant.eu</a>.
+    {%- if last_updated %}
+    {% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}
+    {%- endif %}
+    {%- if show_sphinx %}
+    {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
+    {%- endif %}
+</div>
+{% endblock %}
