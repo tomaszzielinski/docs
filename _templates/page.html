@@ -1,12 +1,18 @@
 {% extends '!layout.html' %}
 
 {% block footer %}
+{{ super() }}
+
 {# ReadTheDocs-specific adaptation of the default Sphinx base theme's footer as per https://github.com/rtfd/readthedocs.org/issues/152
 
    Sphinx license: https://bitbucket.org/birkenfeld/sphinx/src/1f3a2749df39/LICENSE :P
+
    Basically I just customized the copyright clause.
+   The whole deal with the hidden div and JS is that we have to preserve the original footer
+   ({{ super() }} above) and change only a small part of it.
 #}
-<div class="footer">
+
+<div id="mynotes_footer" style="display: none;">
     &copy; Copyright 2012,
     <a href="https://plus.google.com/105897381673403508112?rel=author">Tomasz Zieliński</a>,
     <a href="http://pyconsultant.eu">pyconsultant.eu</a>.
@@ -17,4 +23,11 @@
     {% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}
     {%- endif %}
 </div>
+
+<script>
+    $(function () {
+        $('div.footer').html($('#mynotes_footer').html());
+    });
+</script>
+
 {% endblock %}
