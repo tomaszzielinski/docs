@@ -70,12 +70,33 @@ Browsers' bfcache
 * `Bfcache in WebKit II <http://www.webkit.org/blog/516/webkit-page-cache-ii-the-unload-event/>`_.
 *
 
-jQuery Mobile
-==================
-* https://github.com/jquery/jquery-mobile/issues/1571#issuecomment-1602190
-*
-
 JavaScript
-==================
+==========
 * JS has some `evil parts <http://wtfjs.com/>`_, use `CoffeeScript <http://coffeescript.org/>`_
   (also protects from RSI ;))
+
+
+Single page apps / mobile apps
+====================================
+
+jQuery Mobile
+-------------
+* https://github.com/jquery/jquery-mobile/issues/1571#issuecomment-1602190
+* http://stackoverflow.com/questions/9829224/jquery-mobile-301-redirect-issues/11880230#11880230
+
+
+KnockoutJS
+----------
+* http://stackoverflow.com/questions/7488208/am-i-over-using-the-knockout-mapping-plugin-by-always-using-it-to-do-my-viewmode
+* http://stackoverflow.com/questions/7499133/mapping-deeply-hierarchical-objects-to-custom-classes-using-knockout-mapping-plu
+
+CORS (Cross-Origin Resource Sharing)
+-------------------------------------
+* http://enable-cors.org/
+* https://developer.mozilla.org/en-US/docs/HTTP_access_control
+* http://www.html5rocks.com/en/tutorials/cors/
+* https://github.com/elevenbasetwo/django-cors/blob/master/cors/middleware.py
+
+API design
+----------
+http://toastdriven.com/blog/2012/sep/04/djangocon-2012-slides-api-design-tips/

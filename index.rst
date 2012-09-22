@@ -29,6 +29,7 @@ Contents:
    python-2-rarities
    python-2-types
    useful-services
+   security
    misc
    books
 
