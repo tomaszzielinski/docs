@@ -28,7 +28,7 @@ Contents:
    browsers-js
    python-2-rarities
    python-2-types
-   useful-services
+   useful-stuff
    security
    misc
    books

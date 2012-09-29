@@ -1,5 +1,5 @@
 ============================================
-Useful services
+Useful stuff
 ============================================
 
 Logs, monitoring, metrics
@@ -18,6 +18,8 @@ Logs, monitoring, metrics
 * http://logstash.net/
 * http://www.splunk.com/
 * http://www.loglogic.com/
+* http://www.lognormal.com/
+
 
 
 
@@ -56,3 +58,19 @@ Private cloud storage
 =========
 
 * https://owncloud.com/
+
+
+Grids & UI builders
+=======================
+* http://twitter.github.com/bootstrap/
+* http://jetstrap.com/ - Bootstrap-based UI builder
+* http://foundation.zurb.com/
+
+Web fonts
+==================
+* http://www.edgefonts.com/
+
+
+Mobile development
+=======================
+* https://trigger.io/
