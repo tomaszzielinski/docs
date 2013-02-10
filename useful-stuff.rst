@@ -19,6 +19,7 @@ Logs, monitoring, metrics
 * http://www.splunk.com/
 * http://www.loglogic.com/
 * http://www.lognormal.com/
+* https://mixpanel.com/
 
 
 
@@ -32,9 +33,12 @@ PaaS
 * http://dotcloud.com
 * http://www.activestate.com/stackato
 
+
 CI
 ====
 * https://www.shiningpanda-ci.com/
+* https://circleci.com/
+
 
 Usability/browser testing
 ===================
@@ -74,3 +78,4 @@ Web fonts
 Mobile development
 =======================
 * https://trigger.io/
+
