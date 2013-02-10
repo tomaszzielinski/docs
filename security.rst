@@ -10,6 +10,7 @@ Password storage
 * http://blog.mozilla.org/webdev/2012/06/08/lets-talk-about-password-storage/
 * http://codahale.com/how-to-safely-store-a-password/
 * http://en.wikipedia.org/wiki/Password_strength
+* https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-secure
 
 Guidelines
 --------------------
@@ -17,6 +18,8 @@ Guidelines
 * http://lanyrd.com/2012/djangocon-europe/srprk/
 * http://stackoverflow.com/questions/2794016/what-should-every-programmer-know-about-security
 * http://lanyrd.com/2012/djangocon-us/sxbxr/
+* http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
+* http://www.html5rocks.com/en/tutorials/security/content-security-policy/
 
 Attack types
 --------------------

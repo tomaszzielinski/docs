@@ -89,6 +89,8 @@ KnockoutJS
 ----------
 * http://stackoverflow.com/questions/7488208/am-i-over-using-the-knockout-mapping-plugin-by-always-using-it-to-do-my-viewmode
 * http://stackoverflow.com/questions/7499133/mapping-deeply-hierarchical-objects-to-custom-classes-using-knockout-mapping-plu
+* http://www.knockmeout.net/2013/01/simple-editor-pattern-knockout-js.html
+
 
 CORS (Cross-Origin Resource Sharing)
 -------------------------------------
@@ -100,3 +102,9 @@ CORS (Cross-Origin Resource Sharing)
 API design
 ----------
 http://toastdriven.com/blog/2012/sep/04/djangocon-2012-slides-api-design-tips/
+
+
+
+Websockets
+=================
+* http://lucumr.pocoo.org/2012/9/24/websockets-101/

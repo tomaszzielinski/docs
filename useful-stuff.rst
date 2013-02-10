@@ -79,3 +79,7 @@ Mobile development
 =======================
 * https://trigger.io/
 
+
+Misc
+======================
+* `Some Notes About Time <http://news.ycombinator.com/item?id=5083321>`
