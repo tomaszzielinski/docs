@@ -5,12 +5,9 @@ Django 1.3, 1.4 tips&tricks
 settings.py
 ===========
 
-* Either have a global, versioned *settings.py* file which imports a local (non-versioned) configuration::
-
-    import settings_local
-
-  which has a versioned template *settings_local.py.template*, or use the reverse approach - have a common settings file, e.g. *common_settings.py*
-  and then a non-versioned settings.py which imports the common stuff. The latter seems to be the preferred way.
+* You need a single, versioned *settings.py* which sets the configuration
+based on the environment. Helpful packages:
+`django-dotenv <django-dotenv>`_, `envdir <https://github.com/jezdez/envdir>`_
 
 * Figure out project root using either::
 
