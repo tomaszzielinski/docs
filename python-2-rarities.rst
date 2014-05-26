@@ -1,10 +1,10 @@
-========================
+===================
 Python 2.x rarities
-========================
+===================
 
 
 Slicing, extended slicing, *Ellipsis* - ``a[i:j:step], a[i:j, k:l], a[..., i:j]``
-=====================================================================================
+=================================================================================
 
 More:
 `[1] <http://docs.python.org/release/2.7/library/functions.html#slice>`_,
@@ -30,7 +30,7 @@ to indicate that the comparison is not implemented with respect to the other typ
 
 
 iter(obj, sentinel)
-==============
+===================
 
 `The iter(callable, until_value) function repeatedly calls callable and yields its result until until_value is
 returned <http://stackoverflow.com/questions/101268/hidden-features-of-python/102202#102202>`_.
@@ -39,13 +39,13 @@ Example: ``for line in iter(f.read(), '\n'): ...``
 
 
 Rot13 source encoding
-==============
+=====================
 
 http://stackoverflow.com/questions/101268/hidden-features-of-python/1024693#1024693
 
 
 `Negative \*round()\* <http://stackoverflow.com/questions/101268/hidden-features-of-python/373949#373949>`_
-==============
+===========================================================================================================
 
 Negative precision affects digits in front of the decimal point::
 
@@ -55,7 +55,7 @@ Negative precision affects digits in front of the decimal point::
     '1234.57'
 
 Reversing a string or a list (well, a sequence)
-==================================
+===============================================
 
 It's is as simple as making a copy of it with negative increment: ``sequence[::-1]`` - which is equivalent to
 ``sequence[-1::-1]``  (see: `Extended slices <http://docs.python.org/release/2.3.5/whatsnew/section-slices.html>`_).

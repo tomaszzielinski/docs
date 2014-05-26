@@ -1,6 +1,6 @@
-========================
- Django 1.3, 1.4 tips&tricks
-========================
+===========================
+Django 1.3, 1.4 tips&tricks
+===========================
 
 settings.py
 ===========
@@ -177,7 +177,7 @@ The catch here is that ``form.is_valid()`` returns ``False`` for unbound forms.
 
 
 Rarely-known (and/or undocumented) Django features
-===================================================
+==================================================
 
 * When converting *models.py* into a Python package, make sure that models there have ``app_label`` set in their Meta::
 
@@ -214,7 +214,7 @@ Rarely-known (and/or undocumented) Django features
 
 
 REST, HTTP and Django
-======================
+=====================
 
 
 URLs, application structure
@@ -348,7 +348,7 @@ Django and HTTP caching for static assets
 
 
 HTTP caching for Django views
---------------------------------
+-----------------------------
 
 * There's probably no single setup suitable for all your views (pages)
 * So let me just give you a few links:
@@ -377,7 +377,7 @@ Useful links
 
 
 Other HTTP performance tips
-----------------------------
+---------------------------
 
 * Read `Yahoo guidelines <http://developer.yahoo.com/performance/>`_
 * Read `Google guidelines <http://code.google.com/intl/pl-PL/speed/articles/>`_
@@ -411,7 +411,7 @@ Non-HTTP caching and Django
 
 
 Avoid Apache :)
-===================
+===============
 * Apache is a mature and stable piece of software...
 * ...but it's also a complex one. It's not that hard to leave a security hole or misconfigure it:
 

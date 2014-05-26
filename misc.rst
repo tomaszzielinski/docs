@@ -1,6 +1,6 @@
-========================
- Miscellaneous tips&tricks
-========================
+=========================
+Miscellaneous tips&tricks
+=========================
 
 Postfix
 =======
@@ -18,14 +18,14 @@ Postfix
 
 
 git
-======
+===
 * In the precommit hook one can add ``ack-grep "pdb\.set_trace\(\)"``
   to find all remaining pdb calls. `You can also do much more there <http://tech.yipit.com/2011/11/16/183772396/>`_.
 * `Why You Need a Git Pre-Commit Hook and Why Most Are Wrong <http://tech.yipit.com/2011/11/16/183772396/>`_
 
 
 Virtualbox (+ Ubuntu)
-=======================
+=====================
 
 * Port mapping in the NAT mode `<http://superuser.com/questions/424083/virtualbox-host-ssh-to-guest>`_.
   Then: ``ssh -p 2222 user@localhost``.

@@ -1,9 +1,9 @@
-============================================
+============
 Useful stuff
-============================================
+============
 
 Logs, monitoring, metrics
-==========
+=========================
 
 * http://newrelic.com/
 * http://airbrake.io
@@ -25,7 +25,7 @@ Logs, monitoring, metrics
 
 
 PaaS
-=====
+====
 
 * http://cloudfoundry.com/
 * https://openshift.redhat.com/
@@ -35,13 +35,13 @@ PaaS
 
 
 CI
-====
+==
 * https://www.shiningpanda-ci.com/
 * https://circleci.com/
 
 
 Usability/browser testing
-===================
+=========================
 * http://www.feedbackarmy.com/
 * http://www.browserstack.com/
 * http://www.trymyui.com/
@@ -59,27 +59,27 @@ Misc APIs
 
 
 Private cloud storage
-=========
+=====================
 
 * https://owncloud.com/
 
 
 Grids & UI builders
-=======================
+===================
 * http://twitter.github.com/bootstrap/
 * http://jetstrap.com/ - Bootstrap-based UI builder
 * http://foundation.zurb.com/
 
 Web fonts
-==================
+=========
 * http://www.edgefonts.com/
 
 
 Mobile development
-=======================
+==================
 * https://trigger.io/
 
 
 Misc
-======================
-* `Some Notes About Time <http://news.ycombinator.com/item?id=5083321>`
+====
+* `Some Notes About Time <http://news.ycombinator.com/item?id=5083321>`_

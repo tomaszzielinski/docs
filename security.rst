@@ -1,19 +1,19 @@
-========================
- Security
-========================
+========
+Security
+========
 
 Web security
-================
+============
 
 Password storage
---------------------
+----------------
 * http://blog.mozilla.org/webdev/2012/06/08/lets-talk-about-password-storage/
 * http://codahale.com/how-to-safely-store-a-password/
 * http://en.wikipedia.org/wiki/Password_strength
 * https://docs.djangoproject.com/en/dev/ref/settings/#session-cookie-secure
 
 Guidelines
---------------------
+----------
 * https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines
 * http://lanyrd.com/2012/djangocon-europe/srprk/
 * http://stackoverflow.com/questions/2794016/what-should-every-programmer-know-about-security
@@ -22,7 +22,7 @@ Guidelines
 * http://www.html5rocks.com/en/tutorials/security/content-security-policy/
 
 Attack types
---------------------
+------------
 * https://www.owasp.org/index.php/Category:Attack
 * http://en.wikipedia.org/wiki/Timing_attack
 * http://codahale.com/a-lesson-in-timing-attacks/
@@ -31,13 +31,13 @@ Attack types
 
 
 HMAC
---------------------
+----
 * http://en.wikipedia.org/wiki/HMAC
 * http://docs.python.org/library/hmac.html
 
 
 Android security
-=====================
+================
 * App fundamentals: http://developer.android.com/guide/components/fundamentals.html
 * Permissions: http://developer.android.com/guide/topics/security/permissions.html
 * Device encryption: http://source.android.com/tech/encryption/android_crypto_implementation.html

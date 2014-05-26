@@ -1,22 +1,22 @@
-========================
- Browsers, HTML5 & JavaScript
-========================
+============================
+Browsers, HTML5 & JavaScript
+============================
 
 The hashbang hell
-=====================
+=================
 
 * http://danwebb.net/2011/5/28/it-is-about-the-hashbangs
 * http://isolani.co.uk/blog/javascript/BreakingTheWebWithHashBangs
 * http://webmasters.stackexchange.com/questions/32472/pros-cons-of-hash-navigation-from-seo-perspective
 
 HTML5
-==========
+=====
 
 I've spent some time looking for the best explanations of different aspects of HTML5.
 Here are my findings.
 
 General
------------
+-------
 
 * http://mathiasbynens.be/notes/html5-levels
 * http://html5doctor.com/avoiding-common-html5-mistakes/
@@ -36,7 +36,7 @@ Outlining
 
 
 Headings
----------
+--------
 
 * In general it seems that <header> tag is optional it's only meant to wrap a single <h1> tag.
   <h1> tag sort of implies <header> around it.
@@ -56,7 +56,7 @@ Headings
 
 
 Browsers' bfcache
-==========
+=================
 
 * Firefox has so called `bfcache ("Back-Forward Cache") <https://developer.mozilla.org/en-US/docs/Using_Firefox_1.5_caching>`_
   that keeps the state of the whole page, including JavaScript context, and restores it when user presses the Back
@@ -77,7 +77,7 @@ JavaScript
 
 
 Single page apps / mobile apps
-====================================
+==============================
 
 jQuery Mobile
 -------------
@@ -93,7 +93,7 @@ KnockoutJS
 
 
 CORS (Cross-Origin Resource Sharing)
--------------------------------------
+------------------------------------
 * http://enable-cors.org/
 * https://developer.mozilla.org/en-US/docs/HTTP_access_control
 * http://www.html5rocks.com/en/tutorials/cors/
@@ -106,5 +106,5 @@ http://toastdriven.com/blog/2012/sep/04/djangocon-2012-slides-api-design-tips/
 
 
 Websockets
-=================
+==========
 * http://lucumr.pocoo.org/2012/9/24/websockets-101/

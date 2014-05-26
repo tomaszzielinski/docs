@@ -17,7 +17,7 @@ General information
 
 
 Built-in types
-===================
+==============
 
 For most built-in types the following relationships occur::
 
@@ -45,7 +45,7 @@ while ``object`` is instance of ``type``::
 
 
 Prerequisites for the subsequent sections
-===================
+=========================================
 
 
 `"For new-style classes, implicit invocations of special methods are only guaranteed to work correctly if defined on 
@@ -65,7 +65,7 @@ The latter ``__call__`` method is injected into the created ``C`` instance.
 
 
 Object creation a.k.a. class instantiation
-===================
+==========================================
 
 To create an object of class C one use: ``c = C(...)``.
 
@@ -88,7 +88,7 @@ Subsequently, ``self.__init__()`` takes the class instance object and initialize
 
 
 Special case of object creation: class declaration a.k.a. metaclass instantiation
-===================
+=================================================================================
 
 The following declaration::
 
@@ -105,7 +105,7 @@ and this is resolved like a standard object creation described in the previous s
 
 
 A more complex example of "class + metaclass + instantiation" hell
-===================
+==================================================================
 
 This::
 
@@ -128,7 +128,7 @@ gives in the interactive shell::
 
 
 Another - even more complex - example of "class + metaclass + instantiation" hell
-===================
+=================================================================================
 
 This::
 
@@ -156,7 +156,7 @@ gives in the interactive shell::
 
 
 Further reading
-===================
+===============
 
 * http://python.org/doc/newstyle/
 * http://docs.python.org/reference/datamodel.html, especially http://docs.python.org/reference/datamodel.html#customizing-class-creation

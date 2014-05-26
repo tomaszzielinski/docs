@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to "My notes"!
-=====================================
+======================
 
 This is a compilation of things that I stumbled upon or learned during `my work <http://pyconsultant.eu>`_.
 I decided to make it public to give something back to the Open Source community which equipped me with most
@@ -25,6 +25,7 @@ Contents:
 
    django-1.3
    django-1.4-gotchas
+   deployment
    browsers-js
    python-2-rarities
    python-2-types
