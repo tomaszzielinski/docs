@@ -27,6 +27,7 @@ Contents:
    django-1.4-gotchas
    deployment
    browsers-js
+   python-3
    python-2-rarities
    python-2-types
    useful-stuff
