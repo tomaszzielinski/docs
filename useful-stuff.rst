@@ -2,6 +2,12 @@
 Useful stuff
 ============
 
+Python libraries and packages
+=============================
+
+* https://pypi.python.org/pypi/zc.relation
+* http://pymotw.com/2/contextlib/
+
 Logs, monitoring, metrics
 =========================
 
